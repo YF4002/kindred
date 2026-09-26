@@ -45,7 +45,7 @@ Before publishing a cause, verify the organization independently and add its off
 1. In Supabase, open **SQL Editor** and run `schema.sql`.
 2. In **Project Settings → API**, copy the public anon key into a local `.env` file based on `.env.example`.
 3. Keep the service-role key server-only. Never commit `.env`, API keys, or database passwords.
-4. In Cloudflare Pages, connect the GitHub repository with build command `npm run build` and output directory `dist`.
+4. In Cloudflare Pages, connect the GitHub repository with build command `npm run build` and output directory `dist`. If deploying the existing Cloudflare Worker instead, use `npm run build && npx wrangler deploy`; `wrangler.toml` scopes Worker assets to `dist/` so `node_modules` is never uploaded.
 5. Add only the variables required by the deployed frontend to Pages. Run ingestion and database writes from a server-side job, not from the browser.
 
 The current JSON API remains a local development fallback. The next backend change is to replace those JSON reads with Supabase queries and a moderated admin workflow.
