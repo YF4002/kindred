@@ -1,0 +1,14 @@
+{
+  "name": "kindred",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Kindred: discover verified ways to help in current emergencies.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "ingest:reliefweb": "node scripts/ingest-reliefweb.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
