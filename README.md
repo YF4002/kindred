@@ -36,3 +36,4 @@ Before publishing a cause, verify the organization independently and add its off
 4. Add source attribution, verification timestamps, expiry rules, and audit logs.
 5. Reuse the API and shared types from a React Native/Expo iOS client.
 # kindred
+# kindred
