@@ -4,6 +4,7 @@ import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
+const staticRoot = join(root, "dist");
 const port = Number(process.env.PORT || 3000);
 const contentTypes = { ".css": "text/css", ".html": "text/html", ".js": "text/javascript", ".json": "application/json" };
 
@@ -27,8 +28,14 @@ const server = createServer(async (request, response) => {
   }
 
   const requestedPath = url.pathname === "/" ? "/index.html" : url.pathname;
-  const filePath = normalize(join(root, requestedPath));
-  if (!filePath.startsWith(root)) {
+  // Serve the production Vite bundle when it exists, while retaining the
+  // root fallback for tooling and source inspection.
+  const servingRoot = await readFile(join(staticRoot, "index.html")).then(() => staticRoot).catch(() => root);
+  let filePath = normalize(join(servingRoot, requestedPath));
+  if (servingRoot === staticRoot && requestedPath !== "/index.html" && extname(filePath) === "") {
+    filePath = join(staticRoot, "index.html");
+  }
+  if (!filePath.startsWith(servingRoot)) {
     response.writeHead(403);
     response.end("Forbidden");
     return;
