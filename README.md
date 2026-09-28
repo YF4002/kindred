@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open the Vite URL shown in the terminal (usually <http://localhost:5173>).
+Visit the site at https://kindred.yahyafofana00.workers.dev/.
 
 To build and serve the production bundle:
 
