@@ -2,6 +2,24 @@
 
 Kindred helps people discover verified ways to support communities responding to current emergencies.
 
+## Screenshots
+
+### Homepage and Hero
+
+![Kindred homepage and hero section](docs/screenshots/homepage-hero.png)
+
+### Live Causes Directory
+
+![Kindred live causes directory](docs/screenshots/live-causes.png)
+
+### Impact and Product Roadmap
+
+![Kindred impact and product roadmap](docs/screenshots/impact-and-roadmap.png)
+
+### Categories and Local Alerts
+
+![Kindred categories and local alerts](docs/screenshots/categories-and-alerts.png)
+
 ## Run the React app locally
 
 ```bash
